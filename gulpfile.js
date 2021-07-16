@@ -44,10 +44,7 @@ gulp.task("imageMin", async () => {
   -> This will make the js ugly also minified.
 */
 gulp.task("minifyJs", async () => {
-  gulp
-    .src(["node_modules/bootstrap/dist/js/bootstrap.js", "src/js/*.js"])
-    .pipe(uglify())
-    .pipe(gulp.dest("dist/js"));
+  gulp.src(["src/js/*.js"]).pipe(uglify()).pipe(gulp.dest("dist/js"));
 });
 
 /*
@@ -84,10 +81,7 @@ const watch = async () => {
     ["src/fonts/*.ttf", "src/fonts/*.txt"],
     gulp.series("fonts", "browser-reload")
   );
-  gulp.watch(
-    ["node_modules/bootstrap/dist/js/bootstrap.js", "src/js/*.js"],
-    gulp.series("minifyJs", "browser-reload")
-  );
+  gulp.watch(["src/js/*.js"], gulp.series("minifyJs", "browser-reload"));
   gulp.watch("src/**/*.twig", gulp.series("twig", "browser-reload"));
   gulp.watch("src/img/*", gulp.series("imageMin", "browser-reload"));
   httpserver.init(serveoptions);

@@ -2,34 +2,67 @@
   background-color: $light-grey;
   background-image: url(../img/polygon.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
+}
+.home--page {
+  height: 90vh;
+  @include lg {
+    height: auto;
+  }
 }
 .banner {
-  height: 90vh;
   .banner--row {
     display: flex;
+    @include lg {
+      flex-wrap: wrap;
+    }
     .banner__lf {
       width: 60%;
+      @include lg {
+        width: 100%;
+      }
       .banner__desc {
         width: 700px;
         padding: 1em;
         background: $color-white;
         box-shadow: 4px 7px 8px 5px rgba(0, 0, 0, 0.07);
         border-radius: 10px;
+        @include xxl {
+          width: 600px;
+        }
+        @include xl {
+          width: 500px;
+        }
+        @include lg {
+          width: 100%;
+        }
         .banner__title {
           font-size: 2em;
           font-weight: bold;
-          margin-bottom: 0;
+          margin: 0 0 0.2em;
           line-height: 1.2em;
+          @include xxl {
+            font-size: 1.5em;
+          }
+          @include xl {
+            font-size: 1.2em;
+          }
         }
         .banner__cont {
           font-weight: lighter;
           width: 70%;
+          margin: 0;
+          @include xl {
+            font-size: 0.8em;
+          }
         }
       }
 
       .video--lists {
-        margin-top: 2.5em;
+        margin-top: 3.5em;
+        @include xl {
+          margin-top: 3em;
+        }
         .player--title {
           margin-bottom: 0.5em;
           display: flex;
@@ -39,44 +72,54 @@
             margin-right: 0.2em;
           }
         }
-        .videos--row {
-          display: flex;
-          justify-content: space-between;
-          .video__item {
-            width: calc((100% / 4) - 0.5em);
-            height: 160px;
+        .video__item {
+          display: block;
+          height: 160px;
+          border-radius: 10px;
+          border: 1px solid $primary-color;
+          position: relative;
+          cursor: pointer;
+          @include xl {
+            height: 124px;
+          }
+          @include sm {
+            height: 180px;
+          }
+          .preview {
+            overflow: hidden;
+            height: 100%;
+            margin: 0;
             border-radius: 10px;
-            border: 1px solid $primary-color;
-            position: relative;
-            cursor: pointer;
-            .preview {
-              overflow: hidden;
+            img {
               height: 100%;
-              margin: 0;
-              border-radius: 10px;
-              img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                filter: brightness(0.5);
-              }
-            }
-            .play {
-              position: absolute;
-              top: 0;
               width: 100%;
-              height: 100%;
-              display: grid;
-              place-items: center;
-              svg {
-                circle {
-                  stroke: $primary-color;
-                }
-                path {
-                  fill: $primary-color;
-                }
+              object-fit: cover;
+              filter: brightness(0.5);
+            }
+          }
+          .play {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            svg {
+              circle {
+                stroke: $primary-color;
+              }
+              path {
+                fill: $primary-color;
               }
             }
+          }
+        }
+        .owl-nav {
+          position: absolute;
+          right: 10px;
+          bottom: calc(100% + 0.6em);
+          .owl-next {
+            margin-left: 0.4em;
           }
         }
       }
@@ -98,5 +141,80 @@
     margin-right: 0.2em;
     color: $color-white;
     font-size: 0.8em;
+  }
+}
+
+.banner__rt {
+  @include lg {
+    width: 100%;
+  }
+}
+.the--illus {
+  position: relative;
+  @include lg {
+    width: 60%;
+    margin: auto;
+  }
+  img {
+    width: 100%;
+  }
+  .illus__btn {
+    position: absolute;
+    z-index: 2;
+    width: 15%;
+    .popovers {
+      position: absolute;
+      width: calc(234px + 1em);
+      transform: translateY(-50%);
+      top: 50%;
+      right: 100%;
+      background-color: $color-white;
+      border: 1px solid $primary-color;
+      padding: 0.5em;
+      border-radius: 15px;
+      z-index: 3;
+      transition: 0.3s;
+      opacity: 0;
+      visibility: hidden;
+      @include sm {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 100%;
+        top: unset;
+      }
+      img {
+        width: 33px;
+      }
+      p {
+        margin: 0.5em 0;
+        font-size: 0.6em;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.profile-btn {
+  top: 8%;
+  left: 52%;
+  transform: translateX(-50%);
+  &:hover {
+    z-index: 7;
+    cursor: pointer;
+    .popovers {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+.chat-btn {
+  top: 18%;
+  left: 16%;
+  &:hover {
+    z-index: 7;
+    cursor: pointer;
+    .popovers {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }

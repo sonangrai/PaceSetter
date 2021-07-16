@@ -162,6 +162,14 @@
     position: absolute;
     z-index: 2;
     width: 15%;
+    &:hover {
+      z-index: 7;
+      cursor: pointer;
+      .popovers {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
     .popovers {
       position: absolute;
       width: calc(234px + 1em);
@@ -197,24 +205,32 @@
   top: 8%;
   left: 52%;
   transform: translateX(-50%);
-  &:hover {
-    z-index: 7;
-    cursor: pointer;
-    .popovers {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
 }
 .chat-btn {
   top: 18%;
   left: 16%;
-  &:hover {
-    z-index: 7;
-    cursor: pointer;
-    .popovers {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
+}
+.lock-btn {
+  top: 42%;
+  left: 8%;
+}
+.home-btn {
+  left: 15%;
+  top: 66%;
+}
+.mail-btn {
+  left: 44%;
+  top: 77%;
+}
+.setting-btn {
+  left: 74%;
+  top: 66%;
+}
+.call-btn {
+  top: 42%;
+  left: 81%;
+}
+.phone-btn {
+  top: 18%;
+  left: 72%;
 }

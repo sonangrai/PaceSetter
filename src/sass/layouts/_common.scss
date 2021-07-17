@@ -4,3 +4,15 @@
 .txt-uppercase {
   text-transform: uppercase;
 }
+
+.frm--mob {
+  display: none;
+  @include sm {
+    display: block;
+  }
+}
+.only--desk {
+  @include sm {
+    display: none;
+  }
+}

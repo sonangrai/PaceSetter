@@ -3,6 +3,10 @@
   background-image: url(../img/polygon.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  @include md {
+    background-size: 100%;
+    background-position: bottom;
+  }
 }
 .home--page {
   height: 90vh;
@@ -23,10 +27,7 @@
       }
       .banner__desc {
         width: 700px;
-        padding: 1em;
-        background: $color-white;
-        box-shadow: 4px 7px 8px 5px rgba(0, 0, 0, 0.07);
-        border-radius: 10px;
+        margin: 1em 0;
         @include xxl {
           width: 600px;
         }
@@ -51,7 +52,7 @@
         .banner__cont {
           font-weight: lighter;
           width: 70%;
-          margin: 0;
+          margin: 0 0 1em 0;
           @include xl {
             font-size: 0.8em;
           }
